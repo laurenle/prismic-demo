@@ -1,0 +1,31 @@
+[%- partial('/doctype-and-head') %]
+
+<body>
+
+[%- partial('/navigation') %]
+[%- partial('/timestamp') %]
+
+<h1>Careers</h1>
+
+
+<script type="text/prismic-query" data-binding="careers">
+      [
+        [:d = at(document.type, "career")]
+      ]
+    </script>
+    <table>
+      <tr><td>Position</td><td>Description</td><td>Expiration date</td><td></td></tr>
+      [% _.each(careers.results, function(item) { %]      
+      <tr>
+        <td><p>[%= item.getText('career.position') %]</p></td>
+        <td><p>[%= item.getText('career.details') %]</p></td>
+        <td><p>[%= moment(item.getDate('career.expires')).format("MMMM DD, YYYY") %]</p></td>
+        <td><a href="mailto:laleung94@gmail.com?subject=Applying for [%= item.getText('career.position') %]">Apply Now</a></td>
+      </tr>
+    [% }) %]
+    </table> 
+    </script>
+
+
+</body>
+</html>

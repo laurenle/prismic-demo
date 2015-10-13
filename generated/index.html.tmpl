@@ -1,0 +1,20 @@
+[%- partial('/doctype-and-head') %]
+
+<body>
+
+[%- partial('/navigation') %]
+[%- partial('/timestamp') %]
+
+<script type="text/prismic-query" data-binding="articles">
+      [
+        [:d = at(document.tags, ["copy-main"])]
+      ]
+    </script>
+
+    [% article = articles.results[0]; %]
+    <h1>[%= article.getText('article.title') %]</h1>
+
+    <div id="copy-main-body">[%= article.getText('article.content') %]</div>
+  </body>
+</html>
+

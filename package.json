@@ -1,0 +1,11 @@
+{
+  "name": "baked-example-lauren",
+  "devDependencies": {
+    "baked": "0.3.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^0.6.8",
+    "serve": "^1.4.0"
+    "moment": "^2.10.6"
+  }
+}

@@ -1,0 +1,27 @@
+[%- partial('/doctype-and-head') %]
+
+<body>
+
+[%- partial('/navigation') %]
+[%- partial('/timestamp') %]
+
+<h1>Frequently Asked Questions</h1>
+
+
+<script type="text/prismic-query" data-binding="faq">
+      [
+        [:d = at(document.tags, ["Cupcake"])]
+      ]
+    </script>
+    <table>
+      <tr><td>Question</td><td>Answer</td></tr>
+    [% _.each(faq.results, function(item) { %]
+      <tr>
+        <td><p>[%= item.getText('faq.question') %]</p></td>
+        <td><p>[%= item.getText('faq.answer') %]</p></td>
+      </tr>
+    [% }) %]
+    </table>
+  </body>
+</html>
+
